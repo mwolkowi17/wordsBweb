@@ -1,0 +1,18 @@
+﻿@model WordsBweb.Models.Words
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+    <h2>Words-Angielskie słówka dla Franka</h2>
+    <hr />
+<p>Hello from our View Template!</p>
+<p>@Html.DisplayFor(model => model.WordPol)</p>
+<p>@ViewBag.WyswietlB</p>
+<p>Dobre odpowiedzi:@ViewBag.WyswietlWynik</p>
+<form asp-controller="Words" asp-action="Index">
+    <p>
+        
+        <input type="submit" value="Nowy" />
+    </p>
+</form>

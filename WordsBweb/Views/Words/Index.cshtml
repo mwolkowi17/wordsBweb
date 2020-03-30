@@ -1,0 +1,19 @@
+﻿@model WordsBweb.Models.Words
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Words-Angielskie słówka dla Franka</h2>
+<hr />
+<p>Cześć Pokurczu!</p>
+<p name="slowo">@Html.DisplayFor(model=>model.WordPol)</p>
+<p><b>@ViewBag.Koniec</b></p>
+<p><b>@ViewBag.WyswietlWynik</b></p>
+
+<form asp-controller="Words" asp-action="Search" autocomplete="off">
+    <p>
+        Tłumaczenie: <input type="text" name="SearchString"/>
+        <input type="submit" value="Zatwierdź" />
+    </p>
+</form>
