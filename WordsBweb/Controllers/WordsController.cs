@@ -24,7 +24,7 @@ namespace WordsAWeb.Controllers
         public static int Wynik = 0;
         public static int Ilosc = 0;
 
-        public Words RandomRoboczy()
+       /* public Words RandomRoboczy()
         {
             var rand = new Random();
             int testnum = rand.Next(4);
@@ -33,7 +33,7 @@ namespace WordsAWeb.Controllers
             movieRoboczy = movie.WordEng;
             Ilosc++;
             return movie;
-        }
+        }*/
 
         // GET: /<controller>/
         public async Task<IActionResult> Index(string searchString)
@@ -44,7 +44,13 @@ namespace WordsAWeb.Controllers
             // movie = await _context.WordsA.FindAsync(id);
             if (Ilosc < 3)
             {
-                RandomRoboczy();
+                var rand = new Random();
+                int testnum = rand.Next(4);
+                int id = testnum + 1;
+                movie = _context.WordsA.Find(id);
+                movieRoboczy = movie.WordEng;
+                Ilosc++;
+                
                 var formularz = searchString;
                 if (Ilosc == 1)
                 {
