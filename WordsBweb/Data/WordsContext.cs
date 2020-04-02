@@ -14,5 +14,7 @@ namespace WordsBweb.Data
         {
         }
         public DbSet<Words> WordsA { get; set; }
+        public DbSet<Przyklad>Przyklady { get; set; }
+        public DbSet<Punkty>PunktyBaza { get; set; }
     }
 }

@@ -24,18 +24,19 @@ namespace WordsAWeb.Controllers
         public static int Wynik = 0;
         public static int Ilosc = 0;
 
-       /* public Words RandomRoboczy()
-        {
-            var rand = new Random();
-            int testnum = rand.Next(4);
-            int id = testnum + 1;
-            movie = _context.WordsA.Find(id);
-            movieRoboczy = movie.WordEng;
-            Ilosc++;
-            return movie;
-        }*/
+        /* public Words RandomRoboczy()
+         {
+             var rand = new Random();
+             int testnum = rand.Next(4);
+             int id = testnum + 1;
+             movie = _context.WordsA.Find(id);
+             movieRoboczy = movie.WordEng;
+             Ilosc++;
+             return movie;
+         }*/
 
         // GET: /<controller>/
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(string searchString)
         {
             // var rand = new Random();
@@ -68,6 +69,7 @@ namespace WordsAWeb.Controllers
 
 
         }
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit()
         {
             //var rand = new Random();
@@ -98,7 +100,7 @@ namespace WordsAWeb.Controllers
 
             return View();
         }
-
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> End()
         {
             ViewBag.Koniec = "Koniec";

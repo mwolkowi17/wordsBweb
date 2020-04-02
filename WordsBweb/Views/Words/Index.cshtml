@@ -11,7 +11,7 @@
 <p><b>@ViewBag.Koniec</b></p>
 <p><b>@ViewBag.WyswietlWynik</b></p>
 
-<form asp-controller="Words" asp-action="Search" autocomplete="off">
+<form asp-controller="Words" asp-action="Search" autocomplete="off" method="post">
     <p>
         Tłumaczenie: <input type="text" name="SearchString"/>
         <input type="submit" value="Zatwierdź" />
