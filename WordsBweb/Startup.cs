@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WordsBweb.Data;
+
 
 namespace WordsBweb
 {
@@ -34,6 +37,9 @@ namespace WordsBweb
             });
 
             services.AddDistributedMemoryCache();
+            services.AddDataProtection()
+        .PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"))
+        .ProtectKeysWithCertificate("thumbprint");
 
             services.AddSession(options =>
             {
